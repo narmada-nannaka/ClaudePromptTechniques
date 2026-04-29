@@ -1,0 +1,50 @@
+[
+  {
+    "prompt_inputs": {
+      "height": "178 cm",
+      "weight": "85 kg",
+      "goal": "Build muscle and strength for competitive weightlifting",
+      "restrictions": "None"
+    },
+    "solution_criteria": [
+      "Meal plan covers all meals for one full day and is concise",
+      "Includes high protein intake (minimum 1.6-2.0g per kg body weight)",
+      "Contains strategic nutrient timing with carbs and protein around workout period",
+      "Realistic and practical for a strength athlete"
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+    "scenario": "Testing with a strength/power athlete (weightlifter) requiring high protein intake and strategic nutrient timing around workouts"
+  },
+  {
+    "prompt_inputs": {
+      "height": "178 cm",
+      "weight": "68 kg",
+      "goal": "Marathon preparation with carbohydrate loading for endurance performance",
+      "restrictions": "None"
+    },
+    "solution_criteria": [
+      "Meal plan covers all three meals plus snacks for one full day",
+      "Emphasizes high carbohydrate intake (60-70% of calories) appropriate for marathon training",
+      "Total daily calories align with high-endurance athlete needs (approximately 3000-3500 kcal)",
+      "Includes specific food examples and approximate portion sizes for practical implementation"
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+    "scenario": "Testing with a high-endurance athlete (marathon runner) requiring high caloric intake and carbohydrate loading strategy"
+  },
+  {
+    "prompt_inputs": {
+      "height": "178 cm",
+      "weight": "72 kg",
+      "goal": "Optimize performance and recovery for soccer training and match play",
+      "restrictions": "Vegan (no animal products)"
+    },
+    "solution_criteria": [
+      "Meal plan contains only plant-based foods and is suitable for a vegan diet",
+      "Includes adequate protein sources (legumes, tofu, nuts, seeds) to support athletic recovery",
+      "Covers all major meals (breakfast, lunch, dinner) with snacks for a single day",
+      "Addresses key micronutrients for soccer performance (iron, B12, omega-3s from plant sources)"
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+    "scenario": "Testing with a sport-specific dietary restriction (vegan soccer player) requiring plant-based protein sources and micronutrient optimization"
+  }
+]
