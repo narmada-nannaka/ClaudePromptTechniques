@@ -1,0 +1,52 @@
+[
+  {
+    "prompt_inputs": {
+      "content": "Recent advances in machine learning have significantly impacted natural language processing, particularly through the development of transformer architectures and attention mechanisms. These neural network innovations enable more sophisticated text classification and sentiment analysis tasks, which are foundational to modern information retrieval systems. Furthermore, the application of deep learning to linguistic feature extraction has revolutionized computational linguistics, allowing researchers to automatically identify syntactic patterns, semantic relationships, and discourse structures within large corpora. The intersection of artificial intelligence with linguistics has also spawned new subdisciplines focused on multimodal learning, where vision and language models are trained jointly to understand both visual and textual information simultaneously."
+    },
+    "solution_criteria": [
+      "Extracts both broad topics (e.g., machine learning, artificial intelligence, linguistics) and specific subtopics (e.g., transformer architectures, sentiment analysis, multimodal learning)",
+      "Identifies hierarchical relationships where narrower topics are components of broader domains",
+      "Captures overlapping topics that span multiple conceptual areas (e.g., natural language processing as both an AI application and a linguistic discipline)"
+    ],
+    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings",
+    "scenario": "Testing with a passage containing overlapping and hierarchical topics to verify the prompt extracts both specific and broader subject areas"
+  },
+  {
+    "prompt_inputs": {
+      "content": "We employed a mixed-methods approach combining semi-structured interviews with 47 participants across three urban centers, complemented by thematic analysis following Braun and Clarke's six-phase coding framework. Participant recruitment utilized purposive sampling stratified by socioeconomic status and employment sector. Quantitative validation was achieved through Likert-scale questionnaires distributed to 312 respondents, with statistical significance assessed using multivariate regression models controlling for demographic covariates. Interview transcripts were analyzed using NVivo software with inter-rater reliability measured via Cohen's kappa coefficient (\u03ba = 0.87). Our theoretical framework integrated social capital theory with institutional economics perspectives to interpret findings regarding organizational resilience in post-crisis environments."
+    },
+    "solution_criteria": [
+      "Extracts explicit research methods (qualitative analysis, quantitative validation, mixed-methods)",
+      "Identifies implicit research domains inferred from methodology (sociology, economics, organizational studies, data science)",
+      "Captures theoretical frameworks mentioned or implied by the analytical approach",
+      "Returns results as a JSON array of strings with no duplicates"
+    ],
+    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings",
+    "scenario": "Testing with a passage that includes implicit topics hidden within methodology descriptions to assess whether the prompt can infer unstated research domains"
+  },
+  {
+    "prompt_inputs": {
+      "content": "Recent advances in computational biology have enabled the analysis of protein folding dynamics through machine learning algorithms trained on molecular dynamics simulations. Deep neural networks, particularly transformer architectures adapted from natural language processing, now predict three-dimensional protein structures with unprecedented accuracy by learning patterns from evolutionary sequence alignments. These AI-driven predictions have accelerated drug discovery by identifying potential binding sites and evaluating molecular docking scores, while simultaneously reducing computational overhead by 60% compared to traditional ab initio quantum mechanical methods. The integration of graph neural networks for modeling molecular interactions has further enhanced the capability to predict pharmacokinetic properties and off-target effects, bridging the gap between structural biology and cheminformatics in precision medicine applications."
+    },
+    "solution_criteria": [
+      "Extracts topics from multiple disciplines (biology, computer science, chemistry, medicine) without missing major subject areas",
+      "Returns results as a JSON array of strings with appropriate topic granularity",
+      "Identifies both foundational concepts and interdisciplinary applications mentioned in the passage"
+    ],
+    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings",
+    "scenario": "Testing with a interdisciplinary passage that spans multiple fields (e.g., biology + computer science) to verify the prompt handles diverse topic extraction across traditional subject boundaries"
+  },
+  {
+    "prompt_inputs": {
+      "content": "Recent advances in CRISPR-Cas9 gene editing have demonstrated remarkable efficacy in treating monogenic disorders through ex vivo hematopoietic stem cell (HSC) engineering. The mechanism relies on precise double-strand break (DSB) induction at target loci, followed by homology-directed repair (HDR) or non-homologous end joining (NHEJ) pathways. Clinical trials employing zinc-finger nucleases (ZFNs) and transcription activator-like effector nucleases (TALENs) have shown comparable off-target mutation rates of 0.1-0.3%, while base editors (BEs) and prime editors (PEs) achieve superior specificity through deaminase-catalyzed cytosine-to-uracil conversion and reverse transcriptase-mediated insertions, respectively. Integration of multiplexed guide RNAs (gRNAs) targeting \u03b2-globin and BCL11A loci simultaneously has enabled phenotypic correction in sickle cell disease and \u03b2-thalassemia patients, with long-term engraftment rates exceeding 85% at 24-month follow-up."
+    },
+    "solution_criteria": [
+      "Extracts specialized molecular biology topics including gene editing technologies, repair mechanisms, and disease applications without oversimplifying acronyms",
+      "Identifies niche subtopics such as specific nuclease types (CRISPR-Cas9, ZFNs, TALENs, base editors, prime editors) as distinct topics",
+      "Captures both methodological topics (HDR, NHEJ, multiplexing) and clinical application topics (monogenic disorders, sickle cell disease, \u03b2-thalassemia)",
+      "Returns output as a valid JSON array of strings"
+    ],
+    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings",
+    "scenario": "Testing with a highly specialized passage featuring domain-specific jargon and acronyms to evaluate if the prompt accurately identifies niche topics without over-simplifying"
+  }
+]

@@ -1,0 +1,285 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Prompt Evaluation Report</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                color: #333;
+            }
+            .header {
+                background-color: #f0f0f0;
+                padding: 20px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+            .summary-stats {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .stat-box {
+                background-color: #fff;
+                border-radius: 5px;
+                padding: 15px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                flex-basis: 30%;
+                min-width: 200px;
+            }
+            .stat-value {
+                font-size: 24px;
+                font-weight: bold;
+                margin-top: 5px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th {
+                background-color: #4a4a4a;
+                color: white;
+                text-align: left;
+                padding: 12px;
+            }
+            td {
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+                vertical-align: top;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            .output-cell {
+                white-space: pre-wrap;
+            }
+            .score {
+                font-weight: bold;
+                padding: 5px 10px;
+                border-radius: 3px;
+                display: inline-block;
+            }
+            .score-high {
+                background-color: #c8e6c9;
+                color: #2e7d32;
+            }
+            .score-medium {
+                background-color: #fff9c4;
+                color: #f57f17;
+            }
+            .score-low {
+                background-color: #ffcdd2;
+                color: #c62828;
+            }
+            .output {
+                overflow: auto;
+                white-space: pre-wrap;
+            }
+
+            .output pre {
+                background-color: #f5f5f5;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                padding: 10px;
+                margin: 0;
+                font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+                font-size: 14px;
+                line-height: 1.4;
+                color: #333;
+                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+                overflow-x: auto;
+                white-space: pre-wrap; 
+                word-wrap: break-word; 
+            }
+
+            td {
+                width: 20%;
+            }
+            .score-col {
+                width: 80px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Prompt Evaluation Report</h1>
+            <div class="summary-stats">
+                <div class="stat-box">
+                    <div>Total Test Cases</div>
+                    <div class="stat-value">4</div>
+                </div>
+                <div class="stat-box">
+                    <div>Average Score</div>
+                    <div class="stat-value">8.5 / 10</div>
+                </div>
+                <div class="stat-box">
+                    <div>Pass Rate (≥7)</div>
+                    <div class="stat-value">100.0%</div>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Prompt Inputs</th>
+                    <th>Solution Criteria</th>
+                    <th>Output</th>
+                    <th>Score</th>
+                    <th>Reasoning</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            <tr>
+                <td>Testing with a passage containing overlapping and hierarchical topics to verify the prompt extracts both specific and broader subject areas</td>
+                <td class="prompt-inputs"><strong>content:</strong> Recent advances in machine learning have significantly impacted natural language processing, particularly through the development of transformer architectures and attention mechanisms. These neural network innovations enable more sophisticated text classification and sentiment analysis tasks, which are foundational to modern information retrieval systems. Furthermore, the application of deep learning to linguistic feature extraction has revolutionized computational linguistics, allowing researchers to automatically identify syntactic patterns, semantic relationships, and discourse structures within large corpora. The intersection of artificial intelligence with linguistics has also spawned new subdisciplines focused on multimodal learning, where vision and language models are trained jointly to understand both visual and textual information simultaneously.</td>
+                <td class="criteria">• Extracts both broad topics (e.g., machine learning, artificial intelligence, linguistics) and specific subtopics (e.g., transformer architectures, sentiment analysis, multimodal learning)<br>• Identifies hierarchical relationships where narrower topics are components of broader domains<br>• Captures overlapping topics that span multiple conceptual areas (e.g., natural language processing as both an AI application and a linguistic discipline)</td>
+                <td class="output"><pre>```json
+[
+  "machine learning",
+  "natural language processing",
+  "transformer architectures",
+  "attention mechanisms",
+  "neural networks",
+  "text classification",
+  "sentiment analysis",
+  "information retrieval systems",
+  "deep learning",
+  "linguistic feature extraction",
+  "computational linguistics",
+  "syntactic patterns",
+  "semantic relationships",
+  "discourse structures",
+  "artificial intelligence",
+  "linguistics",
+  "multimodal learning",
+  "vision and language models",
+  "corpora",
+  "neural network innovations"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-high">9</span></td>
+                <td class="reasoning">The solution fully satisfies all mandatory requirements: it is a valid JSON array containing only topic strings with no extraneous commentary. Regarding secondary criteria, it demonstrates strong performance by extracting both broad topics (machine learning, artificial intelligence, linguistics) and specific subtopics (transformer architectures, attention mechanisms, multimodal learning). The solution effectively identifies hierarchical relationships, showing how concepts like sentiment analysis and text classification are components of NLP and information retrieval. It also captures overlapping topics such as natural language processing, which bridges AI applications and linguistic disciplines. The only minor weakness is the inclusion of 'neural network innovations' alongside 'neural networks,' which creates slight redundancy. Overall, the solution comprehensively addresses the task requirements with minimal issues.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a passage that includes implicit topics hidden within methodology descriptions to assess whether the prompt can infer unstated research domains</td>
+                <td class="prompt-inputs"><strong>content:</strong> We employed a mixed-methods approach combining semi-structured interviews with 47 participants across three urban centers, complemented by thematic analysis following Braun and Clarke's six-phase coding framework. Participant recruitment utilized purposive sampling stratified by socioeconomic status and employment sector. Quantitative validation was achieved through Likert-scale questionnaires distributed to 312 respondents, with statistical significance assessed using multivariate regression models controlling for demographic covariates. Interview transcripts were analyzed using NVivo software with inter-rater reliability measured via Cohen's kappa coefficient (κ = 0.87). Our theoretical framework integrated social capital theory with institutional economics perspectives to interpret findings regarding organizational resilience in post-crisis environments.</td>
+                <td class="criteria">• Extracts explicit research methods (qualitative analysis, quantitative validation, mixed-methods)<br>• Identifies implicit research domains inferred from methodology (sociology, economics, organizational studies, data science)<br>• Captures theoretical frameworks mentioned or implied by the analytical approach<br>• Returns results as a JSON array of strings with no duplicates</td>
+                <td class="output"><pre>```json
+[
+  "mixed-methods approach",
+  "semi-structured interviews",
+  "thematic analysis",
+  "Braun and Clarke coding framework",
+  "purposive sampling",
+  "socioeconomic status",
+  "employment sector",
+  "Likert-scale questionnaires",
+  "statistical significance",
+  "multivariate regression models",
+  "demographic covariates",
+  "NVivo software",
+  "inter-rater reliability",
+  "Cohen's kappa coefficient",
+  "social capital theory",
+  "institutional economics",
+  "organizational resilience",
+  "post-crisis environments",
+  "qualitative research",
+  "quantitative validation",
+  "participant recruitment",
+  "interview analysis",
+  "theoretical framework",
+  "research methodology"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-medium">7</span></td>
+                <td class="reasoning">The solution meets all mandatory requirements: it is a valid JSON array of strings with no duplicates and no extra commentary. It successfully extracts explicit research methods and theoretical frameworks from the passage. However, it violates the spirit of the extraction task by including several inferred topics ('qualitative research', 'data science', 'research methodology') that are not explicitly stated in the text. The criteria ask for identification of 'implicit research domains inferred from methodology,' but these inferences should be reasonable and grounded—adding generic research terminology that could apply to any methodology study is overreach. The solution is strong on explicit extraction but weakened by unnecessary inference beyond what the text supports.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a highly specialized passage featuring domain-specific jargon and acronyms to evaluate if the prompt accurately identifies niche topics without over-simplifying</td>
+                <td class="prompt-inputs"><strong>content:</strong> Recent advances in CRISPR-Cas9 gene editing have demonstrated remarkable efficacy in treating monogenic disorders through ex vivo hematopoietic stem cell (HSC) engineering. The mechanism relies on precise double-strand break (DSB) induction at target loci, followed by homology-directed repair (HDR) or non-homologous end joining (NHEJ) pathways. Clinical trials employing zinc-finger nucleases (ZFNs) and transcription activator-like effector nucleases (TALENs) have shown comparable off-target mutation rates of 0.1-0.3%, while base editors (BEs) and prime editors (PEs) achieve superior specificity through deaminase-catalyzed cytosine-to-uracil conversion and reverse transcriptase-mediated insertions, respectively. Integration of multiplexed guide RNAs (gRNAs) targeting β-globin and BCL11A loci simultaneously has enabled phenotypic correction in sickle cell disease and β-thalassemia patients, with long-term engraftment rates exceeding 85% at 24-month follow-up.</td>
+                <td class="criteria">• Extracts specialized molecular biology topics including gene editing technologies, repair mechanisms, and disease applications without oversimplifying acronyms<br>• Identifies niche subtopics such as specific nuclease types (CRISPR-Cas9, ZFNs, TALENs, base editors, prime editors) as distinct topics<br>• Captures both methodological topics (HDR, NHEJ, multiplexing) and clinical application topics (monogenic disorders, sickle cell disease, β-thalassemia)<br>• Returns output as a valid JSON array of strings</td>
+                <td class="output"><pre>```json
+[
+  "CRISPR-Cas9 gene editing",
+  "monogenic disorders",
+  "hematopoietic stem cell engineering",
+  "ex vivo gene therapy",
+  "double-strand break induction",
+  "homology-directed repair",
+  "non-homologous end joining",
+  "zinc-finger nucleases",
+  "transcription activator-like effector nucleases",
+  "off-target mutation rates",
+  "base editors",
+  "prime editors",
+  "deaminase-catalyzed cytosine-to-uracil conversion",
+  "reverse transcriptase",
+  "guide RNAs",
+  "multiplexed gene editing",
+  "β-globin",
+  "BCL11A",
+  "sickle cell disease",
+  "β-thalassemia",
+  "phenotypic correction",
+  "long-term engraftment",
+  "clinical trials",
+  "gene editing specificity",
+  "nuclease technologies",
+  "hematopoietic stem cells"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-high">9</span></td>
+                <td class="reasoning">The solution fully satisfies all mandatory requirements: it is a valid JSON array of strings containing topics from the passage with no extra commentary. It excels at the secondary criteria by identifying specialized molecular biology topics, capturing niche subtopics as distinct entries, and balancing methodological and clinical application topics. The minor redundancy between 'hematopoietic stem cell engineering' and 'hematopoietic stem cells' and the slight incompleteness in capturing specificity-related topics are minor issues that don't significantly detract from an otherwise comprehensive and well-structured extraction.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a interdisciplinary passage that spans multiple fields (e.g., biology + computer science) to verify the prompt handles diverse topic extraction across traditional subject boundaries</td>
+                <td class="prompt-inputs"><strong>content:</strong> Recent advances in computational biology have enabled the analysis of protein folding dynamics through machine learning algorithms trained on molecular dynamics simulations. Deep neural networks, particularly transformer architectures adapted from natural language processing, now predict three-dimensional protein structures with unprecedented accuracy by learning patterns from evolutionary sequence alignments. These AI-driven predictions have accelerated drug discovery by identifying potential binding sites and evaluating molecular docking scores, while simultaneously reducing computational overhead by 60% compared to traditional ab initio quantum mechanical methods. The integration of graph neural networks for modeling molecular interactions has further enhanced the capability to predict pharmacokinetic properties and off-target effects, bridging the gap between structural biology and cheminformatics in precision medicine applications.</td>
+                <td class="criteria">• Extracts topics from multiple disciplines (biology, computer science, chemistry, medicine) without missing major subject areas<br>• Returns results as a JSON array of strings with appropriate topic granularity<br>• Identifies both foundational concepts and interdisciplinary applications mentioned in the passage</td>
+                <td class="output"><pre>```json
+[
+  "computational biology",
+  "protein folding dynamics",
+  "machine learning",
+  "molecular dynamics simulations",
+  "deep neural networks",
+  "transformer architectures",
+  "natural language processing",
+  "protein structure prediction",
+  "evolutionary sequence alignments",
+  "drug discovery",
+  "molecular binding sites",
+  "molecular docking",
+  "quantum mechanical methods",
+  "graph neural networks",
+  "molecular interactions",
+  "pharmacokinetic properties",
+  "off-target effects",
+  "structural biology",
+  "cheminformatics",
+  "precision medicine",
+  "AI-driven predictions"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-high">9</span></td>
+                <td class="reasoning">The solution fully satisfies all mandatory requirements: it is a valid JSON array containing only strings with topic names and no extra commentary. Against the secondary criteria, it demonstrates strong interdisciplinary coverage spanning computational biology, machine learning, structural biology, chemistry, and precision medicine. The topic granularity is appropriate - neither too broad nor too granular. All major subject areas from the passage are represented, including both foundational AI concepts and their specific applications in drug discovery and molecular analysis. The single weakness is minimal redundancy with 'AI-driven predictions,' which is a minor issue that doesn't significantly detract from the overall quality.</td>
+            </tr>
+        
+            </tbody>
+        </table>
+    </body>
+    </html>
+    
